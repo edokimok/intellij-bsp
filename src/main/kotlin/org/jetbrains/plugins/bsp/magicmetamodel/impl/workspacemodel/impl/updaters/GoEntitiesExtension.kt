@@ -43,6 +43,9 @@ public class GoEntitiesExtensionImpl: GoEntitiesExtension {
       moduleId = goModule.symbolicId,
       entitySource = BspEntitySource,
       importPath = entityToAdd.importPath,
+//      root = if (entityToAdd.importPath == "github.com/rickypai/golang-boilerplate/protobufs/helloworld")
+//        entityToAdd.root.resolve("io.grpc.examples.helloworld").toVirtualFileUrl(virtualFileUrlManager)
+//      else entityToAdd.root.toVirtualFileUrl(virtualFileUrlManager)
       root = entityToAdd.root.toVirtualFileUrl(virtualFileUrlManager),
     )
 
@@ -54,6 +57,8 @@ public class GoEntitiesExtensionImpl: GoEntitiesExtension {
         internal = true,
       ) {
         this.module = vgoModule
+//        this.root = if (it.importPath == "github.com/rickypai/golang-boilerplate/protobufs/helloworld")
+//          it.root.resolve("io.grpc.examples.helloworld").toVirtualFileUrl(virtualFileUrlManager)
         this.root = it.root.toVirtualFileUrl(virtualFileUrlManager)
       }
     }
